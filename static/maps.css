@@ -1,0 +1,28 @@
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+	height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.full-circle {
+    background: #1E90FF;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.hollow-circle {
+    background: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border-color: #1E90FF;
+    border-width: 3px;
+    border-style: solid;
+    display: inline-block;
+}
