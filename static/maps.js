@@ -49,6 +49,32 @@ window.coffeeshops_callback = function(results) {
     });
     coffee_shops_markers.push(marker)
     marker_listener(infowindow, marker)
+    api_result = results
+  }
+}
+
+var filter = document.getElementById("filter-select");
+filter.addEventListener("change", function() {
+    // hide markers
+    setMapOnAll(null)
+    if(filter.value == "no-filter") {
+      setMapOnAll(map)
+    } else {
+      setMapOn(map, filter.value)
+    }
+});
+
+function setMapOnAll(map) {
+  for (var i = 0; i < coffee_shops_markers.length; i++) {
+    coffee_shops_markers[i].setMap(map);
+  }
+}
+
+function setMapOn(map, score) {
+  for (var i = 0; i < coffee_shops_markers.length; i++) {
+    if (api_result.coffee_shops[i].score == parseInt(score, 10)) {
+      coffee_shops_markers[i].setMap(map);
+    }
   }
 }
 

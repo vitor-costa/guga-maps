@@ -7,6 +7,15 @@
     <link rel="stylesheet" type="text/css" href="/static/maps.css">
   </head>
   <body>
+    <div class="filter-box">
+      <span>Filtro</span>
+      <select name="Filtro" id="filter-select" class="filter-select">
+        <option value="no-filter" selected="">Sem filtro</option>
+        <option value="1">1 ponto</option>
+        <option value="2">2 pontos</option>
+        <option value="3">3 pontos</option>
+      </select>
+    </div>
     <div id="map"></div>
     <script src="/static/maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApvGkPNUC9iQKzT9m2IocTgFQtRx20r1s&callback=initMap"

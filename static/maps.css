@@ -26,3 +26,21 @@ html, body {
     border-style: solid;
     display: inline-block;
 }
+
+.filter-box {
+    position: absolute;
+    z-index: 2;
+    margin: 80px 110px;
+    background-color: white;
+    padding: 15px 20px 15px 20px;
+    border-radius: 4px;
+    border-width: 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+    color: rgb(86, 86, 86);
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+}
+
+.filter-select {
+	margin-left: 10px;
+}
