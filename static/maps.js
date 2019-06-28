@@ -78,6 +78,17 @@ function setMapOn(map, score) {
   }
 }
 
+function initZoomControl(map) {
+  document.querySelector('.zoom-control-in').onclick = function() {
+    map.setZoom(map.getZoom() + 1);
+  };
+  document.querySelector('.zoom-control-out').onclick = function() {
+    map.setZoom(map.getZoom() - 1);
+  };
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+      document.querySelector('.zoom-control'));
+}
+
 var map;
 function initMap() {
   var styledMapType = new google.maps.StyledMapType(
@@ -194,10 +205,12 @@ function initMap() {
     {name: 'Styled Map'});
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -22.936947, lng: -43.245670},
-    zoom: 12
+    zoom: 12,
+    disableDefaultUI: true,
   });
   map.mapTypes.set('styled_map', styledMapType);
   map.setMapTypeId('styled_map');
+  initZoomControl(map)
   map_listener()
 
   var script = document.createElement('script');
