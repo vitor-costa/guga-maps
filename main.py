@@ -14,6 +14,11 @@ def serve_static(filename):
     return send_from_directory(os.path.join('.', 'static'), filename)
 
 
+@app.route('/favicon.ico')
+def serve_favicon():
+    return send_from_directory(os.path.join('.', 'static'), "mug.png")
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
