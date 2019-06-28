@@ -3,8 +3,19 @@ coffee_info_window = []
 var coffee_mug_icon
 function marker_listener(info, mark) {
   mark.addListener('click', function() {
+    close_all_info_windows()
     info.open(map, mark);
   })
+}
+function map_listener() {
+  map.addListener('click', function() {
+    close_all_info_windows()
+  })
+}
+function close_all_info_windows() {
+  for (var i = coffee_info_window.length - 1; i >= 0; i--) {
+    coffee_info_window[i].close();
+  }
 }
 window.coffeeshops_callback = function(results) {
   for (var i = 0; i < results.coffee_shops.length; i++) {
@@ -161,6 +172,7 @@ function initMap() {
   });
   map.mapTypes.set('styled_map', styledMapType);
   map.setMapTypeId('styled_map');
+  map_listener()
 
   var script = document.createElement('script');
   script.src = '/static/coffee-shops.js';
